@@ -1,4 +1,4 @@
-package tutorial
+package com.itersdesktop.javatechs.grails.ssrest
 
 class UrlMappings {
 

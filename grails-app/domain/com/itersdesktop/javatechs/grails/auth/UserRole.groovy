@@ -1,4 +1,4 @@
-package com.lucasaquiles.auth
+package com.itersdesktop.javatechs.grails.auth
 
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString

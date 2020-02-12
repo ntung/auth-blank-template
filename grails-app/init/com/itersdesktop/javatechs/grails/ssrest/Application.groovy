@@ -1,4 +1,4 @@
-package tutorial
+package com.itersdesktop.javatechs.grails.ssrest
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

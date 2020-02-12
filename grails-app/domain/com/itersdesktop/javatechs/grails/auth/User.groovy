@@ -1,4 +1,4 @@
-package com.lucasaquiles.auth
+package com.itersdesktop.javatechs.grails.auth
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString

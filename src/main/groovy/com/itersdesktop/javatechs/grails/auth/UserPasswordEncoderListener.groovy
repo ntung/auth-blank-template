@@ -1,4 +1,4 @@
-package com.lucasaquiles.auth
+package com.itersdesktop.javatechs.grails.auth
 
 import grails.plugin.springsecurity.SpringSecurityService
 import org.grails.datastore.mapping.engine.event.AbstractPersistenceEvent
