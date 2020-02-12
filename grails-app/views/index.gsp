@@ -41,6 +41,33 @@
                 </g:each>
             </ul>
         </li>
+        <li class="dropdown">
+            <sec:ifLoggedIn>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle"
+                           data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">Hello, <sec:username/><span class="caret"></span></a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item">Profile</a><br/>
+                            <sec:ifAnyGranted roles="ROLE_ADMIN">
+                                <a class="dropdown-item"
+                                   href="#">Dashboard
+                                </a><br/>
+                            </sec:ifAnyGranted>
+                            <a class="dropdown-item" href="${createLink(controller: "logout")}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </sec:ifLoggedIn>
+            <sec:ifNotLoggedIn>
+            %{--<a class="btn" href="${createLink(controller: "user", action: "create")}">Đăng ký</a>--}%
+                <a class="nav-link"
+                   href="${createLink(controller: "login", action: "auth")}">Login</a>
+            </sec:ifNotLoggedIn>
+        </li>
     </content>
 
     <div class="svg" role="presentation">
