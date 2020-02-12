@@ -1,0 +1,56 @@
+# mysql/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+#  namespace: kube-tutorials # match with namespace
+  name: ssrestdemo # MARK A
+  labels:
+    app: ssrestdemo # MARK A
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 35%
+  selector:
+    matchLabels:
+      app: ssrestdemo # MARK A
+  template:
+    metadata:
+      labels:
+        app: ssrestdemo # MARK A
+    spec:
+      containers:
+        - name: ssrestdemo
+          image: tnguyenv/ssrestdemo:1.1-dev
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "255m"
+            limits:
+              memory: "4Gi"
+              cpu: "512m"
+#          env:
+#            - name: JUMMP_CONFIG
+#              valueFrom:
+#                configMapKeyRef:
+#                  name: jummp-configmap # MARK P
+#                  key: .jummp.properties
+#          volumeMounts:
+#            - name: jummp-config
+#              mountPath: /root/.jummp.properties
+#              subPath: .jummp.properties
+#            - name: biomodels-persistent-storage
+#              mountPath: /mnt/nfs
+          imagePullPolicy: Always
+      restartPolicy: Always
+#      volumes:
+#        - name: biomodels-persistent-storage
+#          persistentVolumeClaim:
+#            claimName: biomodels-storage # MARK Z
+#        - name: jummp-config
+#          configMap:
+#            name: jummp-configmap

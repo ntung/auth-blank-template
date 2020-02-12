@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  labels:
+    app: session-affinity
+  name: session-affinity
+spec:
+  rules:
+    - host: biomodels.staging.ebi.ac.uk
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: ssrestdemo-svc
+              servicePort: 8080

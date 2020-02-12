@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ssrestdemo
+  name: ssrestdemo-svc
+#  namespace: default
+spec:
+  type: NodePort  # use ClusterIP as type here
+  ports:
+    - port: 8080
+  selector:
+    app: ssrestdemo
