@@ -53,6 +53,7 @@ dependencies {
     console "org.grails:grails-console"
     compile 'org.grails.plugins:spring-security-core:3.2.0'
     compile 'org.grails.plugins:spring-security-rest:2.0.0.M2'
+    compile 'org.grails.plugins:spring-security-rest-gorm:2.0.0.M2'
     profile "org.grails.profiles:web"
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "com.h2database:h2"
